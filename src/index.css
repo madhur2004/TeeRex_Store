@@ -1,0 +1,32 @@
+@import "tailwindcss";
+/* Custom CSS to hide the scrollbar but allow scrolling */
+.custom-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+
+.custom-scrollbar {
+  -ms-overflow-style: none;  /* Internet Explorer 10+ */
+  scrollbar-width: none;  /* Firefox */
+}
+#container{
+  border: 1px solid goldenrod;
+}
+@media (max-width:750px) {
+  #container{
+    margin-left: 40px;
+    width: 200px;
+  }
+  #choice{
+    width: 150px;
+  }
+  
+}
+@media (max-width: 640px) {
+  #container{
+    margin-left: 45px;
+  }
+  #choice{
+    width: 130px;
+  }
+  
+}
