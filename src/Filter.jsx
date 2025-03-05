@@ -10,10 +10,14 @@ function Filter({ onfilterChange, product }) {
     type: "",
     priceRange: { min: 0, max: 1000 },
   });
-  // Available filter option
+  //  filter option Gender | Color | Type | Price Range up to
+  //define Gender Filter options
   const genderOptions = ["Men", "Women"];
+  // define color options of filter
   const colorOptions = ["Red", "Blue", "Green", "Yellow", "Pink"];
+  // define type options of filter
   const typeOptions = ["Polo", "Hoodies", "Basic"];
+  // apply filters
   useEffect(() => {
     onfilterChange(filters);
   }, [filters, onfilterChange]);
@@ -33,12 +37,14 @@ function Filter({ onfilterChange, product }) {
       }
     });
   };
+  // Deifne Price range function
   const handlePriceChange = (min, max) => {
     setFilters((prev) => ({
       ...prev,
       priceRange: { min, max },
     }));
   };
+  //  function for clear all filters
   const clearFilters = () => {
     setFilters({
       gender: [],
@@ -49,7 +55,7 @@ function Filter({ onfilterChange, product }) {
   };
   return (
     <>
-      {/* clear */}
+      {/* clear all selected Filter */}
       <div className="flex mt-30  ">
         <div className="  w-50  " id="choice">
           {" "}
@@ -64,7 +70,7 @@ function Filter({ onfilterChange, product }) {
               </button>
             </div>
           </div>
-          {/* Gender */}
+          {/* Gender of filter */}
           <div className="  bg-amber-500 w-40 p-3">
             <h3 className="font-medium mb-2">Gender</h3>
             <div className="space-y-2">
@@ -84,7 +90,7 @@ function Filter({ onfilterChange, product }) {
               ))}
             </div>
           </div>
-          {/* Color */}
+          {/* Color of filter */}
           <div className=" bg-amber-400 w-40 p-3 ">
             <h3 className="font-medium mb-2">Color</h3>
             <div className="space-y-2">
@@ -101,7 +107,7 @@ function Filter({ onfilterChange, product }) {
               ))}
             </div>
           </div>
-          {/* Type */}
+          {/* Type of Filter */}
           <div className="bg-amber-500 w-40 p-3">
             <h3 className="font-medium mb-2">Type</h3>
             <div className="space-y-2">
@@ -164,92 +170,11 @@ function Filter({ onfilterChange, product }) {
             </div>
           </div>
         </div>
+        {/* Filterd Items pass to Product Component */}
         <div className="h-170  ml-2 mt-1  w-350  overflow-y-scroll custom-scrollbar  ">
           <Product products={product} />
         </div>
       </div>
-
-      {/* end */}
-      {/*<div className="flex mt-31  ">
-        <div>
-          <div className=" h-115 w-50 sticky top-31  left-0   " id="choice">
-            <div className="bg-orange-500 h-30 rounded-tr-2xl">
-              <div className="justify-self-center w-30 ">
-                <h3 className=" text-3xl font-bold mb-2 ">Colour</h3>
-                <button>
-                  <input type="checkbox" name="" id="" />
-                  Red
-                </button>
-                <br />
-                <button>
-                  <input type="checkbox" name="" id="" />
-                  Blue
-                </button>
-                <br />
-                <button>
-                  <input type="checkbox" name="" id="" />
-                  Green
-                </button>
-              </div>
-            </div>
-            <div className=" bg-orange-400 h-25">
-              <div className="justify-self-center  w-30  ">
-                <h3 className=" text-3xl font-bold mb-2 ">Gender</h3>
-                <button>
-                  <input type="checkbox" name="" id="" />
-                  Men
-                </button>
-                <br />
-                <button>
-                  <input type="checkbox" name="" id="" />
-                  Women
-                </button>
-              </div>
-            </div>
-            <div className=" bg-orange-500 h-30">
-              <div className="justify-self-center w-30 ">
-                <h3 className=" text-3xl font-bold mb-2  ">Price</h3>
-                <button>
-                  <input type="checkbox" name="" id="" />
-                  0-Rs.250
-                </button>
-                <br />
-                <button>
-                  <input type="checkbox" name="" id="" />
-                  Rs.251-450
-                </button>
-                <br />
-                <button>
-                  <input type="checkbox" name="" id="" />
-                  Rs.450
-                </button>
-              </div>
-            </div>
-            <div className="bg-orange-400  h-30 rounded-br-2xl">
-              <div className="justify-self-center  w-30 ">
-                <h3 className=" text-3xl font-bold mb-2 ">Type</h3>
-                <button>
-                  <input type="checkbox" name="" id="" />
-                  Polo
-                </button>
-                <br />
-                <button>
-                  <input type="checkbox" name="" id="" />
-                  Hoodle
-                </button>
-                <br />
-                <button>
-                  <input type="checkbox" name="" id="" />
-                  Basic
-                </button>
-              </div>
-            </div>
-          </div>
-        </div>
-        <div className="h-141  ml-2 mt-1  w-350  overflow-y-scroll custom-scrollbar  ">*/}
-      {/* <Product /> */}
-      {/* </div> */}
-      {/* </div> */}
     </>
   );
 }
