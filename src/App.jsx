@@ -1,21 +1,19 @@
-import "./App.css";
 import Header from "./Header";
 import Filter from "./Filter";
 import Footer from "./Footer";
 import { useEffect, useState } from "react";
-import Product from "./Product";
 import { IoSearchOutline } from "react-icons/io5";
 
 function App() {
   const [products, setProducts] = useState([]);
   const [filteredProducts, setFilterProducts] = useState([]);
   const [searchQuery, setSearchQuery] = useState("");
-  const [cart, setCart] = useState([]);
   const [filters, setFilters] = useState({
     gender: "",
     color: "",
     type: "",
   });
+
   useEffect(() => {
     const fetchProduct = async () => {
       try {
@@ -77,6 +75,7 @@ function App() {
 
   return (
     <>
+      {/* Header */}
       <Header />
       <div className="fixed top-15 left-0 w-full bg-pink-400 h-15 drop-shadow-[0_35px_35px_rgba(0,0,0,0.25)] ">
         <form
@@ -101,10 +100,10 @@ function App() {
           </div>
         </form>
       </div>
-
+      {/* Main */}
       <Filter onfilterChange={handleFilterChange} product={filteredProducts} />
+      {/* Footer */}
       <Footer />
-      {/* <Product products={filteredProducts} /> */}
     </>
   );
 }
